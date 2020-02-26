@@ -2706,6 +2706,7 @@ CREATE TABLE `oc_product_description` (
   `product_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `description_preview` text NOT NULL,
   `description` text NOT NULL,
   `tag` text NOT NULL,
   `meta_title` varchar(255) NOT NULL,
