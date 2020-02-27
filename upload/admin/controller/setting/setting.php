@@ -396,6 +396,12 @@ class ControllerSettingSetting extends Controller {
 			$data['config_review_guest'] = $this->config->get('config_review_guest');
 		}
 
+        if (isset($this->request->post['config_voucher'])) {
+            $data['config_voucher'] = $this->request->post['config_voucher'];
+        } else {
+            $data['config_voucher'] = $this->config->get('config_voucher');
+        }
+
 		if (isset($this->request->post['config_voucher_min'])) {
 			$data['config_voucher_min'] = $this->request->post['config_voucher_min'];
 		} else {
