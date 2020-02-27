@@ -305,6 +305,7 @@ class ControllerProductProduct extends Controller {
 
 			if ($this->config->get('config_tax')) {
 				$data['tax'] = $this->currency->format((float)$product_info['special'] ? $product_info['special'] : $product_info['price'], $this->session->data['currency']);
+                $data['tax_class_id'] = $product_info['tax_class_id'];
 			} else {
 				$data['tax'] = false;
 			}
@@ -432,7 +433,7 @@ class ControllerProductProduct extends Controller {
 					'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
 					'special'     => $special,
-					'tax_id'      => ($result['tax_class_id']?$result['tax_class_id']:false),
+					'tax_id'      => 11,
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      => $rating,
