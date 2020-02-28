@@ -15,6 +15,13 @@ class ControllerSettingSetting extends Controller {
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			$this->model_setting_setting->editSetting('config', $this->request->post);
 
+			// Отключаем Ваучеры
+            $this->load->model('setting/setting');
+            $this->model_setting_setting->editSetting('total_voucher', [
+                'total_voucher_status' => $this->request->post['config_voucher']
+            ]);
+            //
+
 			if ($this->config->get('config_currency_auto')) {
 				$this->load->model('localisation/currency');
 
