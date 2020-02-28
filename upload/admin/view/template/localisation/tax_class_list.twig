@@ -35,6 +35,7 @@
               <thead>
                 <tr>
                   <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
+                  <td></td>
                   <td class="text-left">{% if sort == 'title' %}
                     <a href="{{ sort_title }}" class="{{ order|lower }}">{{ column_title }}</a>
                     {% else %}
@@ -52,6 +53,7 @@
                     {% else %}
                     <input type="checkbox" name="selected[]" value="{{ tax_class.tax_class_id }}" />
                     {% endif %}</td>
+                  <td class="text-left">{{ tax_class.tax_class_id }}</td>
                   <td class="text-left">{{ tax_class.title }}</td>
                   <td class="text-right"><a href="{{ tax_class.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a></td>
                 </tr>
