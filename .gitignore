@@ -1,5 +1,8 @@
 /upload/phpmyadmin
 
+# template
+/upload/catalog/view/theme/voiptech.com.ua
+
 # Config and Htaccess Files
 /upload/.htaccess
 /upload/config.php
