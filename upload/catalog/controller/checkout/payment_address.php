@@ -2,9 +2,17 @@
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
-class ControllerCheckoutPaymentAddress extends Controller {
+class ControllerCheckoutPaymentAddress extends Controller
+{
 	public function index() {
 		$this->load->language('checkout/checkout');
+
+		//
+        $this->load->model('account/customer');
+        $customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
+        $data['firstname'] = $customer_info['firstname'];
+        $data['lastname'] = $customer_info['lastname'];
+        //
 
 		if (isset($this->session->data['payment_address']['address_id'])) {
 			$data['address_id'] = $this->session->data['payment_address']['address_id'];
