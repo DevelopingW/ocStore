@@ -256,6 +256,8 @@ class ControllerProductProduct extends Controller {
 			$data['model'] = $product_info['model'];
 			$data['reward'] = $product_info['reward'];
 			$data['points'] = $product_info['points'];
+            $data['sku'] = $product_info['sku'];
+            $data['description_preview'] = html_entity_decode($product_info['description_preview'], ENT_QUOTES, 'UTF-8');
 			$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
 
 			if ($product_info['quantity'] <= 0) {
@@ -293,6 +295,7 @@ class ControllerProductProduct extends Controller {
 
 			if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
 				$data['price'] = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+                $data['priceWithOut'] = $product_info['price'];
 			} else {
 				$data['price'] = false;
 			}
