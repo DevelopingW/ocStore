@@ -462,7 +462,7 @@ class ControllerProductProduct extends Controller {
 
             $this->document->setOgType('product'); // add type to opengraph
             $this->document->setOgImage($data['images'][0]['popup']); // add image to opengraph
-            $this->document->setOgPrice($data['priceWithOut']); // add price to opengraph
+            $this->document->setOgPrice(round($data['priceWithOut'], 2)); // add price to opengraph
             $this->document->setOgPriceCurrency($this->session->data['currency']); // add priceCurrency to opengraph
 
 			$data['column_left'] = $this->load->controller('common/column_left');
