@@ -460,8 +460,11 @@ class ControllerProductProduct extends Controller {
 
 			$this->model_catalog_product->updateViewed($this->request->get['product_id']);
 
+            // add image to opengraph
+            if (!empty($data['popup'])) {
+                $this->document->setOgImage($data['popup']);
+            }
             $this->document->setOgType('product'); // add type to opengraph
-            $this->document->setOgImage($data['images'][0]['popup']); // add image to opengraph
             $this->document->setOgPrice(round($data['priceWithOut'], 2)); // add price to opengraph
             $this->document->setOgPriceCurrency($this->session->data['currency']); // add priceCurrency to opengraph
 
