@@ -18,7 +18,10 @@ class Document {
 	private $links = array();
 	private $styles = array();
 	private $scripts = array();
+	private $og_type;
 	private $og_image;
+    private $og_price;
+    private $og_priceCurrency;
 
 	/**
      * 
@@ -154,12 +157,44 @@ class Document {
 			return array();
 		}
 	}
-	
-	public function setOgImage($image) {
+
+    public function setOgType($type)
+    {
+        $this->og_type = $type;
+    }
+
+    public function getOgType()
+    {
+        return $this->og_type;
+    }
+
+	public function setOgImage($image)
+    {
 		$this->og_image = $image;
 	}
 
-	public function getOgImage() {
+	public function getOgImage()
+    {
 		return $this->og_image;
 	}
+
+    public function setOgPrice($price)
+    {
+        $this->og_price = $price;
+    }
+
+    public function getOgPrice()
+    {
+        return $this->og_price;
+    }
+
+    public function setOgPriceCurrency($og_priceCurrency)
+    {
+        $this->og_priceCurrency = $og_priceCurrency;
+    }
+
+    public function getOgPriceCurrency()
+    {
+        return $this->og_priceCurrency;
+    }
 }

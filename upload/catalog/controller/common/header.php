@@ -56,9 +56,16 @@ class ControllerCommonHeader extends Controller {
 		} else {
 			$data['og_url'] = $host . substr($this->request->server['REQUEST_URI'], 1, (strlen($this->request->server['REQUEST_URI'])-1));
 		}
+
+		if (!empty($this->document->getOgPrice())) {
+            $data['og_price'] = $this->document->getOgPrice();
+        }
+
+        if (!empty($this->document->getOgPriceCurrency())) {
+            $data['og_priceCurrency'] = $this->document->getOgPriceCurrency();
+        }
 		
 		$data['og_image'] = $this->document->getOgImage();
-		
 
 
 		// Wishlist
